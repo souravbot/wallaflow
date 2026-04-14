@@ -1,6 +1,6 @@
-# WallFlow
+# Wallaflow
 
-WallFlow is a GNOME Shell extension that rotates wallpapers from a folder you choose.
+Wallaflow is a GNOME Shell extension that rotates wallpapers from a folder you choose.
 
 ## Features
 
@@ -17,7 +17,7 @@ WallFlow is a GNOME Shell extension that rotates wallpapers from a folder you ch
 ## Project Layout
 
 ```text
-wallflow/
+wallaflow/
   extension.js
   metadata.json
   prefs.js
@@ -55,7 +55,7 @@ glib-compile-schemas schemas
 Create a zip from the project root:
 
 ```bash
-zip -r wallflow.zip extension.js metadata.json prefs.js schemas
+zip -r wallaflow.zip extension.js metadata.json prefs.js schemas
 ```
 
 ## Publish To GitHub
