@@ -199,7 +199,7 @@ class WallFlowIndicator extends PanelMenu.Button {
     setPaused(paused) {
         this._pauseItem.label.text = paused ? 'Resume Slideshow' : 'Pause Slideshow';
         this._icon.icon_name = paused
-            ? 'media-playback-pause-symbolic'
+            ? 'media-playback-start-symbolic'
             : 'preferences-desktop-wallpaper-symbolic';
     }
 
@@ -322,17 +322,22 @@ export default class WallFlowExtension extends Extension {
     }
 
     setFolderPath(path) {
-        if (!path)
-            return;
+        const normalizedPath = path.trim();
 
-        const folder = Gio.File.new_for_path(path);
+        if (!normalizedPath) {
+            this._settings.set_string('folder-path', '');
+            this._indicator?.syncFolderPath('');
+            return;
+        }
+
+        const folder = Gio.File.new_for_path(normalizedPath);
         if (!folder.query_exists(null)) {
             this._updateIndicator('Folder not found');
             return;
         }
 
-        this._settings.set_string('folder-path', path);
-        this._indicator?.syncFolderPath(path);
+        this._settings.set_string('folder-path', normalizedPath);
+        this._indicator?.syncFolderPath(normalizedPath);
     }
 
     setInterval(seconds) {
@@ -373,7 +378,7 @@ export default class WallFlowExtension extends Extension {
         this._indicator?.setInterval(interval);
         this._timeoutId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, interval, () => {
             this.showNextWallpaper();
-            return GLib.SOURCE_CONTINUE;
+            return GLib.SOURCE_REMOVE;
         });
         GLib.Source.set_name_by_id(this._timeoutId, '[WallFlow] wallpaper timer');
         this._updateIndicator();
