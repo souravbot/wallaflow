@@ -1,0 +1,10 @@
+{
+  "name": "WallFlow",
+  "description": "Rotate wallpapers from your own folder with a custom timer and panel controls.",
+  "uuid": "wallflow@sourav.local",
+  "shell-version": [
+    "49"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.wallflow",
+  "version": 1
+}
