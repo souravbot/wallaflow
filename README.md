@@ -30,11 +30,11 @@ wallaflow/
 Copy the project files into your local GNOME Shell extensions directory:
 
 ```bash
-mkdir -p ~/.local/share/gnome-shell/extensions/wallflow@sourav.local
-cp extension.js metadata.json prefs.js ~/.local/share/gnome-shell/extensions/wallflow@sourav.local/
-mkdir -p ~/.local/share/gnome-shell/extensions/wallflow@sourav.local/schemas
-cp schemas/org.gnome.shell.extensions.wallflow.gschema.xml ~/.local/share/gnome-shell/extensions/wallflow@sourav.local/schemas/
-glib-compile-schemas ~/.local/share/gnome-shell/extensions/wallflow@sourav.local/schemas
+mkdir -p ~/.local/share/gnome-shell/extensions/wallflow@urusername.local
+cp extension.js metadata.json prefs.js ~/.local/share/gnome-shell/extensions/wallflow@urusername.local/
+mkdir -p ~/.local/share/gnome-shell/extensions/wallflow@urusernamelocal/schemas
+cp schemas/org.gnome.shell.extensions.wallflow.gschema.xml ~/.local/share/gnome-shell/extensions/wallflow@username.local/schemas/
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/wallflow@username.local/schemas
 ```
 
 Then reload the extension:
@@ -58,18 +58,8 @@ Create a zip from the project root:
 zip -r wallaflow.zip extension.js metadata.json prefs.js schemas
 ```
 
-## Publish To GitHub
+happy reading , hehehe
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin <your-repo-url>
-git push -u origin main
-```
 
-## Notes
 
-- `schemas/gschemas.compiled` is generated locally and is ignored in git.
-- The installed extension currently uses the UUID `wallflow@sourav.local`.
+
